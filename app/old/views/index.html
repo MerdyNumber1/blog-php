@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Тест{% endblock %}
+
+{% block content %}  
+    {% for item in data %} 
+    	<p>{{item}}</p> 
+    {% endfor %}  
+{% endblock %}

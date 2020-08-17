@@ -1,0 +1,13 @@
+{
+    "name": "merdy/blog",
+    "authors": [
+        {
+            "name": "Alexey Zasulsky",
+            "email": "sampekmoy@gmail.com"
+        }
+    ],
+    "require": {
+        "klein/klein": "^2.1",
+        "twig/twig": "1.*"
+    }
+}
