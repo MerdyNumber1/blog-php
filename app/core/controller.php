@@ -1,17 +1,16 @@
 <?php
 
 class Controller {
-    public $view;
-    public $model;
+    static public $view; 
 
     public function __construct() {
-        $this->view = new View();
+        self::$view = new View();
     }
-    public function action_index($request = null) {
+    public static function action($request = null) {
         
     }
-    public function render($content_file, $Model, $data) {
+    public static function render($content_file, $Model, $data) {
         $data = $Model->get_data($data);
-        $this->view->generate($content_file, $data);
+        self::$view->generate($content_file, $data);
     }
 }

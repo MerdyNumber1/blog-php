@@ -4,21 +4,19 @@ use \Klein\Klein;
 class Router { 
     static public function start() { 
         $route = new Klein();
-
+        new Controller;
+        
         $route->respond('GET', '/', function () {
             require_once __DIR__."/../controllers/controller_main.php";	
-            $controller_main = new Controller_Main;	
-            $controller_main->action_index(); 
+            Controller_Main::action();	 
         }); 
         $route->respond('GET', '/posts', function () {		
             require_once __DIR__."/../controllers/controller_posts.php";	
-            $controller_posts = new Controller_Posts;	
-            $controller_posts->action_index(); 
+            Controller_Posts::action();	
         }); 
-        $route->respond('GET', '/posts/[:id]', function ($req) {		
+        $route->respond('GET', '/posts/[i:id]', function ($req) {		
             require_once __DIR__."/../controllers/controller_post.php";	
-            $controller_post = new Controller_Post;	
-            $controller_post->action_index($req->id); 
+            Controller_Post::action($req->id);	
         }); 
         
         $route->onHttpError(function ($code, $router) {

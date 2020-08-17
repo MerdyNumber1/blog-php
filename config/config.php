@@ -1,6 +1,12 @@
 <?php
 $config = Array(
     "title" => "Блог Алексея Засульского",
+    "db" => array(
+        "db_host" => "localhost",
+        "db_user" => "root",
+        "db_password" => "",
+        "db_name" => "blog"
+    ), 
 );
 
 ini_set('error_reporting', E_ALL);
