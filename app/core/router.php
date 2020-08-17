@@ -5,14 +5,20 @@ class Router {
     static public function start() { 
         $route = new Klein();
 
-        $route->respond('GET', '/', function () {		
-            echo "Главная";
+        $route->respond('GET', '/', function () {
+            require_once __DIR__."/../controllers/controller_main.php";	
+            $controller_main = new Controller_Main;	
+            $controller_main->action_index(); 
         }); 
         $route->respond('GET', '/posts', function () {		
-            echo "Все посты:";
+            require_once __DIR__."/../controllers/controller_posts.php";	
+            $controller_posts = new Controller_Posts;	
+            $controller_posts->action_index(); 
         }); 
         $route->respond('GET', '/posts/[:id]', function ($req) {		
-            echo "Пост: $req->id";
+            require_once __DIR__."/../controllers/controller_post.php";	
+            $controller_post = new Controller_Post;	
+            $controller_post->action_index($req->id); 
         }); 
         
         $route->onHttpError(function ($code, $router) {

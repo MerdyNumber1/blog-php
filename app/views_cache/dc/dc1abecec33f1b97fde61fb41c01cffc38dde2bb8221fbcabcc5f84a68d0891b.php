@@ -12,58 +12,48 @@ use Twig\Source;
 use Twig\Template;
 
 /* index.html */
-class __TwigTemplate_bfc0ec9f90e56d538be77d0c98f1b8f9e54c68973d1bf4ff9eed438a2af8e7bc extends \Twig\Template
+class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd84422e6e extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
         parent::__construct($env);
 
-        $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'content' => [$this, 'block_content'],
-        ];
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "base.html";
+        $this->blocks = [
+        ];
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent = $this->loadTemplate("base.html", "index.html", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
-
-    // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        echo "Тест";
-    }
-
-    // line 5
-    public function block_content($context, array $blocks = [])
-    {
-        echo "  
+        // line 1
+        echo "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
     ";
-        // line 6
+        // line 10
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["data"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            echo " 
-    \t<p>";
-            // line 7
+            // line 11
+            echo "        <li>";
             echo twig_escape_filter($this->env, $context["item"], "html", null, true);
-            echo "</p> 
+            echo "</li>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 8
-        echo "  
-";
+        // line 13
+        echo "    </ul>
+</body>
+</html>";
     }
 
     public function getTemplateName()
@@ -78,7 +68,7 @@ class __TwigTemplate_bfc0ec9f90e56d538be77d0c98f1b8f9e54c68973d1bf4ff9eed438a2af
 
     public function getDebugInfo()
     {
-        return array (  65 => 8,  57 => 7,  51 => 6,  46 => 5,  40 => 3,  30 => 1,);
+        return array (  54 => 13,  45 => 11,  41 => 10,  30 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -91,14 +81,20 @@ class __TwigTemplate_bfc0ec9f90e56d538be77d0c98f1b8f9e54c68973d1bf4ff9eed438a2af
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"base.html\" %}
-
-{% block title %}Тест{% endblock %}
-
-{% block content %}  
-    {% for item in data %} 
-    \t<p>{{item}}</p> 
-    {% endfor %}  
-{% endblock %}", "index.html", "D:\\openserver\\OSPanel\\domains\\blog\\views\\index.html");
+        return new Source("<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+    {% for item in data %}
+        <li>{{item}}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>", "index.html", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\index.html");
     }
 }
