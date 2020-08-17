@@ -6,9 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-    {% for item in data %}
-        <li>{{item}}</li>
+    <ul> 
+    {% for post in posts %}
+        <li>
+            {% for value in post %}
+                <p>{{value}}</p>
+            {% endfor %}
+        </li>
     {% endfor %}
     </ul>
 </body>

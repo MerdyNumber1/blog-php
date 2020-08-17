@@ -8,6 +8,6 @@ class View {
         $this->twig = new Twig_Environment($loader, array('charset' => 'utf-8', 'cache' => __DIR__.'/../views_cache', 'debug' => true));
     }   
     public function generate($content_file, $data) {
-        echo $this->twig->render($content_file, array('data' => $data));
+        echo $this->twig->render($content_file, $data);
     }
 }

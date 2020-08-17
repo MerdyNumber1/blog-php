@@ -35,22 +35,36 @@ class __TwigTemplate_0bfc9f3ce16a3838dbd99c5e0e9911d0fa5eeb09f9ce29614da580ae3d5
     <title>Document</title>
 </head>
 <body>
-    <ul>
+    <ul> 
     ";
         // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["data"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+        $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
             // line 11
-            echo "        <li>";
-            echo twig_escape_filter($this->env, $context["item"], "html", null, true);
-            echo "</li>
+            echo "        <li>
+            ";
+            // line 12
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($context["post"]);
+            foreach ($context['_seq'] as $context["_key"] => $context["value"]) {
+                // line 13
+                echo "                <p>";
+                echo twig_escape_filter($this->env, $context["value"], "html", null, true);
+                echo "</p>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['value'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 15
+            echo "        </li>
     ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
+        // line 17
         echo "    </ul>
 </body>
 </html>";
@@ -68,7 +82,7 @@ class __TwigTemplate_0bfc9f3ce16a3838dbd99c5e0e9911d0fa5eeb09f9ce29614da580ae3d5
 
     public function getDebugInfo()
     {
-        return array (  54 => 13,  45 => 11,  41 => 10,  30 => 1,);
+        return array (  68 => 17,  61 => 15,  52 => 13,  48 => 12,  45 => 11,  41 => 10,  30 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -89,9 +103,13 @@ class __TwigTemplate_0bfc9f3ce16a3838dbd99c5e0e9911d0fa5eeb09f9ce29614da580ae3d5
     <title>Document</title>
 </head>
 <body>
-    <ul>
-    {% for item in data %}
-        <li>{{item}}</li>
+    <ul> 
+    {% for post in posts %}
+        <li>
+            {% for value in post %}
+                <p>{{value}}</p>
+            {% endfor %}
+        </li>
     {% endfor %}
     </ul>
 </body>
