@@ -7,7 +7,7 @@ class View {
         $loader = new Twig_Loader_Filesystem(__DIR__.'/../views');
         $this->twig = new Twig_Environment($loader, array('charset' => 'utf-8', 'cache' => __DIR__.'/../views_cache', 'debug' => true));
     }   
-    public function generate($content_file, $data) {
+    public function generate($content_file, $data = null) {
         echo $this->twig->render($content_file, $data);
     }
 }

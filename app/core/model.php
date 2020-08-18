@@ -11,8 +11,7 @@ class Model {
         $this->db_user = $config["db"]["db_user"];
         $this->db_password = $config["db"]["db_password"];
         $this->db_name = $config["db"]["db_name"];   
-        $this->db_conn = new PDO("mysql:host=".$this->db_host.";dbname=".$this->db_name, $this->db_user, $this->db_password);
-        $this->db_conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+        $this->db_conn = new mysqli($this->db_host, $this->db_user, $this->db_password, $this->db_name);  
     }
 
     public function get_data($data = null) {
