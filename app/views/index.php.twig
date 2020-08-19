@@ -7,12 +7,12 @@
 {% block content %}
 <div class="container">
     <div class="content__articles articles">
-        {% for article in articles %}
-            <div class="content__article article"> 
-                {%if article.article_image is not null %}<img class="article_image" src="{{path_to_articles_images}}/{{article.article_image}}" />{% endif %}
-                <h3 class="article__title">{{article.article_title}}</h3>
+        {% for article in articles %} 
+            <a class="content__article article" href="articles/{{article.article_id}}" > 
+                {%if article.article_image is not null %}<img class="article__image" src="{{path_to_articles_images}}/{{article.article_image}}" />{% endif %}
+                <h4 class="article__title">{{article.article_title}}</h4>
                 <p class="article__date">{{article.article_date}}</p>
-            </div>
+            </a> 
         {% endfor %} 
     </div>
 </div>

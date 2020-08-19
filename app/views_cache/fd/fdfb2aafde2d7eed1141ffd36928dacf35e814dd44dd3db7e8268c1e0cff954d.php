@@ -59,7 +59,7 @@ class __TwigTemplate_11a4606aaaad9cb124f3538f423e335602d16f176d9a294f9853ceff57b
         // line 7
         $this->displayBlock('title', $context, $blocks);
         echo " - Блог</title>
-    <link rel=\"stylesheet\" href=\"static/style/style.css\">
+    <link rel=\"stylesheet\" href=\"/static/style/style.css\">
     ";
     }
 
@@ -121,7 +121,7 @@ class __TwigTemplate_11a4606aaaad9cb124f3538f423e335602d16f176d9a294f9853ceff57b
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>{% block title %}{% endblock %} - Блог</title>
-    <link rel=\"stylesheet\" href=\"static/style/style.css\">
+    <link rel=\"stylesheet\" href=\"/static/style/style.css\">
     {% endblock %}
 </head>
 <body>

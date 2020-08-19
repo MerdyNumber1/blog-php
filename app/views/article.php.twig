@@ -2,12 +2,15 @@
 
 {% block title %}{{title}}{% endblock %}
 
+{% block header %}<h1 class="header__title">{{header_title}}</h1>{% endblock %}
+
 {% block content %}
-    <ul>
-    {% for value in article %}
-        <li>
-            {{value}}
-        </li>
-    {% endfor %}
-    </ul>
+<div class="container">
+    <div class="article-alone">  
+        {%if article.article_image is not null %}<img class="article__image" src="/{{path_to_articles_images}}/{{article.article_image}}" />{% endif %} 
+        <p class="article__content">{{article.article_content}}</p>
+        <p class="article__date">{{article.article_date}}</p> 
+        <button><a href="/">На главную</a></button>
+    </div> 
+</div>
 {% endblock %}

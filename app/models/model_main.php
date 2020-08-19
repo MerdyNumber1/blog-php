@@ -9,6 +9,7 @@ class Model_Main extends Model {
                 "article_title" => $row['title'],
                 "article_date" => $row['date'],
                 "article_image" => !empty($row['image_name']) ? $row['image_name'] : null,
+                "article_id" => $row['id'],
             ]);
         }  
         $this->result = [

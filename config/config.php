@@ -7,7 +7,7 @@ $config = Array(
         "db_password" => "",
         "db_name" => "blog"
     ), 
-    "articles_images" => "upload/article_images",
+    "article_images" => "upload/article_images",
 );
 
 ini_set('error_reporting', E_ALL);

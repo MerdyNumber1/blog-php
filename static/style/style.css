@@ -4,8 +4,15 @@ body {
     font-size: 16px;
     font-family: Arial;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .container {
-    width: 1140px;
+    width: 90%;
+    max-width: 1140px;
     margin: 0 auto;
 }
 
@@ -43,7 +50,14 @@ body {
     border-radius: 5px; 
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.35); 
 }
-.article_image {
+.article__image {
     width: 100%;
     border-radius: 5px;
+} 
+.article-alone {
+    padding: 70px 0px;
+}
+.article-alone .article__image {
+    min-width: 290px;
+    width: 40%;
 }

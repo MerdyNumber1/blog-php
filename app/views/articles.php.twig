@@ -1,15 +1,19 @@
 {% extends "base.php.twig" %}
 
-{% block title %}Все посты{% endblock %}
+{% block title %}{{title}}{% endblock %} 
+
+{% block header %}<h1 class="header__title">{{header_title}}</h1>{% endblock %}
 
 {% block content %}
-    <ul> 
-    {% for article in articles %}
-        <li>
-            {% for value in article %}
-                <p>{{value}}</p>
-            {% endfor %}
-        </li>
-    {% endfor %}
-    </ul>
+<div class="container">
+    <div class="content__articles articles">
+        {% for article in articles %} 
+            <a class="content__article article" href="articles/{{article.article_id}}" > 
+                {%if article.article_image is not null %}<img class="article__image" src="{{path_to_articles_images}}/{{article.article_image}}" />{% endif %}
+                <h4 class="article__title">{{article.article_title}}</h4>
+                <p class="article__date">{{article.article_date}}</p>
+            </a> 
+        {% endfor %} 
+    </div>
+</div>
 {% endblock %}

@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* index.php.twig */
-class __TwigTemplate_fef72e85202ffaa65bb19a7e22603a06904e9ca29f5b19c93a4738ed3950dd96 extends \Twig\Template
+/* articles.php.twig */
+class __TwigTemplate_fab2e6b136c7e89d50fad350cc2274b4c4b8b6a9a631b5c18ef011678b012155 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -33,7 +33,7 @@ class __TwigTemplate_fef72e85202ffaa65bb19a7e22603a06904e9ca29f5b19c93a4738ed395
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent = $this->loadTemplate("base.php.twig", "index.php.twig", 1);
+        $this->parent = $this->loadTemplate("base.php.twig", "articles.php.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -99,7 +99,7 @@ class __TwigTemplate_fef72e85202ffaa65bb19a7e22603a06904e9ca29f5b19c93a4738ed395
 
     public function getTemplateName()
     {
-        return "index.php.twig";
+        return "articles.php.twig";
     }
 
     public function isTraitable()
@@ -124,7 +124,7 @@ class __TwigTemplate_fef72e85202ffaa65bb19a7e22603a06904e9ca29f5b19c93a4738ed395
     {
         return new Source("{% extends \"base.php.twig\" %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{title}}{% endblock %} 
 
 {% block header %}<h1 class=\"header__title\">{{header_title}}</h1>{% endblock %}
 
@@ -140,6 +140,6 @@ class __TwigTemplate_fef72e85202ffaa65bb19a7e22603a06904e9ca29f5b19c93a4738ed395
         {% endfor %} 
     </div>
 </div>
-{% endblock %}", "index.php.twig", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\index.php.twig");
+{% endblock %}", "articles.php.twig", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\articles.php.twig");
     }
 }
