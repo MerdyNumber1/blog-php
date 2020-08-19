@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* index.html */
-class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd84422e6e extends \Twig\Template
+/* index.html.twig */
+class __TwigTemplate_e6bb76d2d1ad89bb71999fe112ce16e7bec4890aecbebf354973c9caf3ce1ea3 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -28,12 +28,12 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent = $this->loadTemplate("base.html", "index.html", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -63,16 +63,16 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
         $context['_seq'] = twig_ensure_traversable(($context["articles"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 11
-            echo "        <div class=\"content__article article\">
+            echo "            <div class=\"content__article article\">
                 <p>";
             // line 12
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "articles_title", []), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "article_title", []), "html", null, true);
             echo "</p>
                 <p>";
             // line 13
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "articles_date", []), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "article_date", []), "html", null, true);
             echo "</p>
-        </div>
+            </div>
         ";
         }
         $_parent = $context['_parent'];
@@ -86,7 +86,7 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
 
     public function getTemplateName()
     {
-        return "index.html";
+        return "index.html.twig";
     }
 
     public function isTraitable()
@@ -109,7 +109,7 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"base.html\" %}
+        return new Source("{% extends \"base.html.twig\" %}
 
 {% block title %}{{title}}{% endblock %}
 
@@ -119,13 +119,13 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
 <div class=\"container\">
     <div class=\"content__articles articles\">
         {% for article in articles %}
-        <div class=\"content__article article\">
-                <p>{{article.articles_title}}</p>
-                <p>{{article.articles_date}}</p>
-        </div>
+            <div class=\"content__article article\">
+                <p>{{article.article_title}}</p>
+                <p>{{article.article_date}}</p>
+            </div>
         {% endfor %}
     </div>
 </div>
-{% endblock %}", "index.html", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\index.html");
+{% endblock %}", "index.html.twig", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\index.html.twig");
     }
 }

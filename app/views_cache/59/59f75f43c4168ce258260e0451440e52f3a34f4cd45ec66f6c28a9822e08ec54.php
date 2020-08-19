@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* base.html */
-class __TwigTemplate_7bc9911ea6bff7533662f87018a5e30afac159334e89c3547721bc087161d757 extends \Twig\Template
+/* base.html.twig */
+class __TwigTemplate_85b5d4f7a30beeaca4109763d69335f20f8b01b677e54e7b4d98a4321665e16a extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -96,7 +96,7 @@ class __TwigTemplate_7bc9911ea6bff7533662f87018a5e30afac159334e89c3547721bc08716
 
     public function getTemplateName()
     {
-        return "base.html";
+        return "base.html.twig";
     }
 
     public function getDebugInfo()
@@ -132,6 +132,6 @@ class __TwigTemplate_7bc9911ea6bff7533662f87018a5e30afac159334e89c3547721bc08716
     </main>
     {% endblock %}
 </body>
-</html>", "base.html", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\base.html");
+</html>", "base.html.twig", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\base.html.twig");
     }
 }
