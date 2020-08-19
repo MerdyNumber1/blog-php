@@ -50,14 +50,14 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
     ";
         // line 7
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
+        $context['_seq'] = twig_ensure_traversable(($context["articles"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 8
             echo "        <li>
             ";
             // line 9
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable($context["post"]);
+            $context['_seq'] = twig_ensure_traversable($context["article"]);
             foreach ($context['_seq'] as $context["_key"] => $context["value"]) {
                 // line 10
                 echo "                <p>";
@@ -73,7 +73,7 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
     ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 14
         echo "    </ul>
@@ -111,9 +111,9 @@ class __TwigTemplate_8ddb3df54a07f72e56c9be120638da36f9d6939165fb76d80c56b5fd844
 
 {% block content %}
     <ul>
-    {% for post in posts %}
+    {% for article in articles %}
         <li>
-            {% for value in post %}
+            {% for value in article %}
                 <p>{{value}}</p>
             {% endfor %}
         </li>

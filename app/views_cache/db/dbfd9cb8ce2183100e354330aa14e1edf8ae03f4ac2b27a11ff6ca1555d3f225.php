@@ -18,37 +18,48 @@ class __TwigTemplate_577c08366aff316caef679b79ebc933c5a15699158af78a42c2a18c5599
     {
         parent::__construct($env);
 
-        $this->parent = false;
-
         $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'content' => [$this, 'block_content'],
         ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "base.html";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        // line 1
-        echo "<!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Document</title>
-</head>
-<body>
-    <ul> 
+        $this->parent = $this->loadTemplate("base.html", "articles.html", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_title($context, array $blocks = [])
+    {
+        echo "Все посты";
+    }
+
+    // line 5
+    public function block_content($context, array $blocks = [])
+    {
+        // line 6
+        echo "    <ul> 
     ";
-        // line 10
+        // line 7
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articles"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 11
+            // line 8
             echo "        <li>
             ";
-            // line 12
+            // line 9
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($context["article"]);
             foreach ($context['_seq'] as $context["_key"] => $context["value"]) {
-                // line 13
+                // line 10
                 echo "                <p>";
                 echo twig_escape_filter($this->env, $context["value"], "html", null, true);
                 echo "</p>
@@ -57,17 +68,16 @@ class __TwigTemplate_577c08366aff316caef679b79ebc933c5a15699158af78a42c2a18c5599
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['value'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 15
+            // line 12
             echo "        </li>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
+        // line 14
         echo "    </ul>
-</body>
-</html>";
+";
     }
 
     public function getTemplateName()
@@ -82,7 +92,7 @@ class __TwigTemplate_577c08366aff316caef679b79ebc933c5a15699158af78a42c2a18c5599
 
     public function getDebugInfo()
     {
-        return array (  68 => 17,  61 => 15,  52 => 13,  48 => 12,  45 => 11,  41 => 10,  30 => 1,);
+        return array (  79 => 14,  72 => 12,  63 => 10,  59 => 9,  56 => 8,  52 => 7,  49 => 6,  46 => 5,  40 => 3,  30 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -95,14 +105,11 @@ class __TwigTemplate_577c08366aff316caef679b79ebc933c5a15699158af78a42c2a18c5599
 
     public function getSourceContext()
     {
-        return new Source("<!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Document</title>
-</head>
-<body>
+        return new Source("{% extends \"base.html\" %}
+
+{% block title %}Все посты{% endblock %}
+
+{% block content %}
     <ul> 
     {% for article in articles %}
         <li>
@@ -112,7 +119,6 @@ class __TwigTemplate_577c08366aff316caef679b79ebc933c5a15699158af78a42c2a18c5599
         </li>
     {% endfor %}
     </ul>
-</body>
-</html>", "articles.html", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\articles.html");
+{% endblock %}", "articles.html", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\articles.html");
     }
 }

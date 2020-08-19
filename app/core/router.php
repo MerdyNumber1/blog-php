@@ -17,7 +17,7 @@ class Router {
                 $controller = new Controller_Articles;
                 $controller->action_articles();	
             }); 
-            $route->respond('GET', '/[i:id]?', function ($req) {		
+            $route->respond('GET', '/[i:id]/?', function ($req) {		
                 require_once __DIR__."/../controllers/controller_articles.php";
                 $controller = new Controller_Articles; 
                 $controller->action_article(["id" => $req->id]);	
