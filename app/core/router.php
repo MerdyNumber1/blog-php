@@ -23,19 +23,27 @@ class Router {
                 $controller->action_article(["id" => $req->id]);	
             }); 
         }); 
+
+        $route->with('/admin', function() use ($route) {
+            $route->respond('GET', '/login/?', function () {		
+                require_once __DIR__."/../controllers/controller_login.php";
+                $controller = new Controller_Login;
+                $controller->action_get_login();	
+            }); 
+            $route->respond('GET', '/signup/?', function ($req) {		
+                require_once __DIR__."/../controllers/controller_signup.php";
+                $controller = new Controller_Signup; 
+                $controller->action_get_signup();	
+            }); 
+        }); 
         
-        $route->onHttpError(function ($code, $router) {
-            switch ($code) {
-                case 404:
-                    $router->response()->body(
-                        "Not found"
-                    );
-                    break; 
-                default:
-                    $router->response()->body(
-                        'Server error'
-                    );
-            }
+        $route->onHttpError(function ($code, $router) { 
+            require_once __DIR__."/../controllers/controller_error.php";	
+            $controller = new Controller_Error; 
+            $data = $controller->action_error($code);
+            $router->response()->body(	 
+                $controller->render('error.php.twig', $data)
+            ); 
         });
         
         $route->dispatch();

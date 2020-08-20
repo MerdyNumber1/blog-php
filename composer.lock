@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d65daf85c4c641d5c38f81fa10f68799",
+    "content-hash": "87a0a690062ef9bd05c9a56acf53258a",
     "packages": [
+        {
+            "name": "gabordemooij/redbean",
+            "version": "v5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "8b8326f7dbe8023675b0d1936df4800fe0cce0b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/8b8326f7dbe8023675b0d1936df4800fe0cce0b3",
+                "reference": "8b8326f7dbe8023675b0d1936df4800fe0cce0b3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "https://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "https://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "time": "2020-04-26T13:31:18+00:00"
+        },
         {
             "name": "klein/klein",
             "version": "v2.1.2",

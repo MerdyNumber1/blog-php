@@ -40,13 +40,14 @@ a {
 .articles {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
 }
 .article {
     width: calc(32% - 30px);
     padding: 15px;
+    margin: 7px;
     border-radius: 5px; 
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.35); 
 }
@@ -60,4 +61,7 @@ a {
 .article-alone .article__image {
     min-width: 290px;
     width: 40%;
+}
+.btn-error {
+    margin-bottom: 70px;
 }

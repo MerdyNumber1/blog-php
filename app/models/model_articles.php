@@ -1,9 +1,9 @@
 <?php
-class Model_Articles extends Model {
-    public $result;
-    public function get_data_articles($data = null) { 
-        $this->result = $this->db_conn->query("SELECT * FROM articles;"); 
-        $this->data = $this->result->fetch_all(MYSQLI_ASSOC);
+
+use RedBeanPHP\R;
+class Model_Articles extends Model { 
+    public function get_data_articles($data = null) {  
+        $this->data = R::findAll('articles');
         $articles_data = [];
         foreach($this->data as $row) { 
             array_push($articles_data, [
@@ -18,15 +18,14 @@ class Model_Articles extends Model {
             "header_title" => "Все посты",
             "articles" => $articles_data,
             "path_to_articles_images" => "upload/article_images",
-        ];  
-        return $this->result;
+        ]; 
+        return $this->result; 
     }
     public function get_data_article($data = null) {   
-        $this->result = $this->db_conn->query("SELECT * FROM articles WHERE id = $data");  
-        $this->data = $this->result->fetch_array(MYSQLI_ASSOC);  
+        $this->data = R::load('articles', $data); 
         $this->result = [
-            "title" => mb_strimwidth($this->data['title'], 0, 22)."...",
-            "header_title" => $this->data['title'],
+            "title" => mb_strimwidth($this->data->title, 0, 22)."...",
+            "header_title" => $this->data->title,
             "article" => [
                 "article_title" => $this->data['title'],
                 "article_date" => $this->data['date'],
