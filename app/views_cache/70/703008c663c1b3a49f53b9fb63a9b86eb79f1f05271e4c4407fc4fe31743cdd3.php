@@ -51,9 +51,25 @@ class __TwigTemplate_70be42f59b5c35ca2558215cbd36c6a7888607331ee22e353bacd9d613c
         echo "</h1>";
     }
 
-    // line 7
+    // line 8
     public function block_content($context, array $blocks = [])
     {
+        // line 9
+        echo "
+    ";
+        // line 10
+        if ( !($context["done_registration"] ?? null)) {
+            // line 11
+            echo "    <form method=\"POST\" action=\"\">
+        <input name=\"login\" placeholder=\"Login:\" required />
+        <input name=\"password\" placeholder=\"Password:\" required />
+        <input type=\"submit\" value=\"Зарегистрироваться\" />
+    </form>
+    ";
+        }
+        // line 17
+        echo "
+";
     }
 
     public function getTemplateName()
@@ -68,7 +84,7 @@ class __TwigTemplate_70be42f59b5c35ca2558215cbd36c6a7888607331ee22e353bacd9d613c
 
     public function getDebugInfo()
     {
-        return array (  55 => 7,  47 => 5,  41 => 3,  31 => 1,);
+        return array (  71 => 17,  63 => 11,  61 => 10,  58 => 9,  55 => 8,  47 => 5,  41 => 3,  31 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -87,6 +103,17 @@ class __TwigTemplate_70be42f59b5c35ca2558215cbd36c6a7888607331ee22e353bacd9d613c
 
 {% block header %}<h1 class=\"header__title\">{{header_title}}</h1>{% endblock %}
 
-{% block content %}{% endblock %}", "signup.php.twig", "D:\\openserver\\OSPanel\\domains\\blog\\app\\views\\signup.php.twig");
+
+{% block content %}
+
+    {% if not done_registration %}
+    <form method=\"POST\" action=\"\">
+        <input name=\"login\" placeholder=\"Login:\" required />
+        <input name=\"password\" placeholder=\"Password:\" required />
+        <input type=\"submit\" value=\"Зарегистрироваться\" />
+    </form>
+    {% endif %}
+
+{% endblock %}", "signup.php.twig", "D:\\OSPanel\\domains\\blog\\app\\views\\signup.php.twig");
     }
 }

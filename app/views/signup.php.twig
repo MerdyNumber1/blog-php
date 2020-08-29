@@ -4,4 +4,15 @@
 
 {% block header %}<h1 class="header__title">{{header_title}}</h1>{% endblock %}
 
-{% block content %}{% endblock %}
+
+{% block content %}
+
+    {% if not done_registration %}
+    <form method="POST" action="">
+        <input name="login" placeholder="Login:" required />
+        <input name="password" placeholder="Password:" required />
+        <input type="submit" value="Зарегистрироваться" />
+    </form>
+    {% endif %}
+
+{% endblock %}

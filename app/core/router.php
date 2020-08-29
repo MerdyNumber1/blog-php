@@ -25,15 +25,30 @@ class Router {
         }); 
 
         $route->with('/admin', function() use ($route) {
-            $route->respond('GET', '/login/?', function () {		
-                require_once __DIR__."/../controllers/controller_login.php";
-                $controller = new Controller_Login;
-                $controller->action_get_login();	
-            }); 
-            $route->respond('GET', '/signup/?', function ($req) {		
-                require_once __DIR__."/../controllers/controller_signup.php";
-                $controller = new Controller_Signup; 
-                $controller->action_get_signup();	
+            $route->with('/login/?', function ()  use ($route) {
+                $route->respond('GET', '', function ($req) {
+                    require_once __DIR__ . "/../controllers/controller_login.php";
+                    $controller = new Controller_Login;
+                    $controller->action_get_login();
+                });
+                $route->respond('POST', '', function ($req) {
+                    require_once __DIR__ . "/../controllers/controller_login.php";
+                    $controller = new Controller_Login;
+                    $controller->action_post_login();
+                });
+            });
+
+            $route->with('/signup/?', function ($req)  use ($route) {
+                $route->respond('GET', '', function ($req) {
+                    require_once __DIR__."/../controllers/controller_signup.php";
+                    $controller = new Controller_Signup;
+                    $controller->action_get_signup();
+                });
+                $route->respond('POST', '', function ($req) {
+                    require_once __DIR__."/../controllers/controller_signup.php";
+                    $controller = new Controller_Signup;
+                    $controller->action_post_signup($req->paramsPost());
+                });
             }); 
         }); 
         

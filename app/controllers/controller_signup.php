@@ -7,4 +7,10 @@ class Controller_Signup extends Controller {
         $data = $model->get_data($request); 
         $this->render('signup.php.twig', $data);
     }
+    public function action_post_signup($request = null) {
+        require_once __DIR__.'/../models/model_signup.php';
+        $model = new Model_Signup;
+        $data = $model->post_data($request);
+        $this->render('signup.php.twig', $data);
+    }
 }

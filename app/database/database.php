@@ -4,15 +4,10 @@ require_once __DIR__.'/../../vendor/autoload.php';
 
 use RedBeanPHP\R;
 class Database {
-    public $db_host, $db_user, $db_password, $db_name, $db_conn;
     public $action;
 
-    public function __construct($config) {
-        $this->db_host = $config["db"]["db_host"];
-        $this->db_user = $config["db"]["db_user"];
-        $this->db_password = $config["db"]["db_password"];
-        $this->db_name = $config["db"]["db_name"];    
-        R::setup("mysql:host=".$this->db_host.";dbname=".$this->db_name, $this->db_user, $this->db_password); 
+    public function __construct() {
+        R::setup("mysql:host=".Config::get("db_host").";dbname=".Config::get("db_name"), Config::get("db_user"), Config::get("db_password"));
 
         $this->action = $_SERVER['argv'][1];
         
@@ -32,5 +27,5 @@ class Database {
     }
 }
 
-$main = new Database($config);
+$main = new Database();
 
